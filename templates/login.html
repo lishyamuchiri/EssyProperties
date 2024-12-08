@@ -1,0 +1,89 @@
+{% extends 'starter-page.html' %}
+{% load  static %}
+
+
+{% block body %}
+
+     <style>
+     body{
+         background-image: url("{% static 'assets/images/house  sell 3.jpg' %}");
+     }
+    .rounded-t-5 {
+      border-top-left-radius: 0.5rem;
+      border-top-right-radius: 0.5rem;
+    }
+
+    @media (min-width: 992px) {
+      .rounded-tr-lg-0 {
+        border-top-right-radius: 0;
+      }
+        form{
+
+            box-shadow: 2px 3px 6px #010202;
+
+        }
+
+      .rounded-bl-lg-5 {
+        border-bottom-left-radius: 0.5rem;
+      }
+    }
+  </style>
+
+    <br><br><br><br><br><br>
+
+<!-- Section: Design Block -->
+<section id="body" style="text-align: center">
+
+
+    <h1 >Admin login page</h1>
+
+
+  <div class="card mb-3" style="margin-right: 200px;margin-left: 200px;background-color: #6c757d">
+    <div class="row g-0 d-flex align-items-center" style="background-color: lightskyblue">
+      <div class="col-lg-4 d-none d-lg-flex">
+        <img src="{% static 'assets/images/land5.jpg' %}" alt="Trendy Pants and Shoes" style="width: 350px;height: 350px;margin-left: 30px;margin-right: 30px"
+          class="w-100 rounded-t-5 rounded-tr-lg-0 rounded-bl-lg-5" />
+      </div>
+      <div class="col-lg-8">
+        <div class="card-body py-5 px-md-5">
+
+          <form method="POST" action="{% url 'bookshow' %}" >
+              {% csrf_token %}
+            <!-- Email input -->
+            <div data-mdb-input-init class="form-outline mb-4">
+              <input type="name" name="name"  id="form2Example1" class="form-control" required=""  placeholder="username"/>
+              <label class="form-label" for="form2Example1">Username</label>
+            </div>
+
+            <!-- Password input -->
+            <div data-mdb-input-init class="form-outline mb-4">
+              <input type="password" name="password"  id="form2Example2" class="form-control" required="" placeholder="password" />
+              <label class="form-label" for="form2Example2">Password</label>
+            </div>
+
+
+
+            <!-- Submit button -->
+            <button  type="submit" class="btn btn-success btn-block mb-4">Sign in</button>
+
+          </form>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- Section: Design Block -->
+
+
+
+
+
+
+
+
+
+
+
+
+{% endblock %}

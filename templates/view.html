@@ -1,0 +1,44 @@
+{% extends 'starter-page.html' %}
+{% load static %}
+{% block body %}
+    <br><br><br><br>
+    <style>
+    body{
+        background-image: url("{% static 'assets/images/land5.jpg' %}");
+    }
+    </style>
+
+<h1 style="text-align: center; ">Admin View</h1>
+    <section id="message" style="text-align: center;color: white;gap: 40px;background-color: black" >
+
+        <br><br>
+<ul style="color:black">
+
+
+     <li class="btn btn-outline-dark" >
+          <a href="{% url 'bookshow' %}"
+             {% if request.resolver_match.url_name == 'bo' %}style="color: black; font-weight: bold;"{% endif %}>
+            Booking site view
+          </a>
+        </li>
+        </li>
+    <li class="btn btn-outline-dark" >
+          <a href="{% url 'upload' %}"
+             {% if request.resolver_match.url_name == 'bo' %}style="color: black; font-weight: bold;"{% endif %}>
+            uploading images
+          </a>
+      </li>
+        </ul>
+<div id="img" style="display: flex;margin-left: 150px;gap: 40px">
+   <img src="{% static 'assets/images/house  sell 3.jpg' %}" alt="" style="width:500px;height:350px">
+   <img src="{% static 'assets/images/housesell2.jpg' %}" alt="" style="width:500px;height:350px">
+    </div>
+
+
+
+    </section>
+
+
+
+
+{% endblock %}

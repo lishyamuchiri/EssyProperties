@@ -1,15 +1,4 @@
-/**
-* Template Name: EstateAgency
-* Template URL: https://bootstrapmade.com/real-estate-agency-bootstrap-template/
-* Updated: Aug 09 2024 with Bootstrap v5.3.3
-* Author: BootstrapMade.com
-* License: https://bootstrapmade.com/license/
-*/
 
-/*--------------------------------------------------------------
-# Font & Color Variables
-# Help: https://bootstrapmade.com/color-system/
---------------------------------------------------------------*/
 /* Fonts */
 :root {
   --default-font: "Roboto",  system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
@@ -19,7 +8,7 @@
 
 /* Global Colors - The following color variables are used throughout the website. Updating them here will change the color scheme of the entire website */
 :root { 
-  --background-color: #120f0f; /* Background color for the entire website, including individual sections */
+  --background-color: #ffffff; /* Background color for the entire website, including individual sections */
   --default-color: #444444; /* Default color used for the majority of the text content across the entire website */
   --heading-color: #1b1b1b; /* Color for headings, subheadings and title throughout the website */
   --accent-color: #2eca6a; /* Accent color that represents your brand on the website. It's used for buttons, links, and other elements that need to stand out */
@@ -46,7 +35,7 @@
 
 .dark-background {
   --background-color: #060606;
-  --default-color: #151515;
+  --default-color: #ffffff;
   --heading-color: #ffffff;
   --surface-color: #252525;
   --contrast-color: #ffffff;
@@ -60,6 +49,12 @@
 /*--------------------------------------------------------------
 # General Styling & Shared Classes
 --------------------------------------------------------------*/
+html {
+  scroll-behavior: smooth;
+}
+
+
+
 body {
   color: var(--default-color);
   background-color: var(--background-color);
@@ -438,7 +433,7 @@ h6 {
 --------------------------------------------------------------*/
 .footer {
   color: var(--default-color);
-  background-color: var(--background-color);
+  background-color: #2ec96a;
   font-size: 14px;
   padding: 40px 0 0 0;
   position: relative;
@@ -497,38 +492,56 @@ h6 {
 /*--------------------------------------------------------------
 # Preloader
 --------------------------------------------------------------*/
-#preloader {
-  position: fixed;
-  inset: 0;
-  z-index: 999999;
-  overflow: hidden;
-  background: var(--background-color);
-  transition: all 0.6s ease-out;
-}
 
-#preloader:before {
-  content: "";
-  position: fixed;
-  top: calc(50% - 30px);
-  left: calc(50% - 30px);
-  border: 6px solid #ffffff;
-  border-color: var(--accent-color) transparent var(--accent-color) transparent;
-  border-radius: 50%;
-  width: 60px;
-  height: 60px;
-  animation: animate-preloader 1.5s linear infinite;
-}
+/* Preloader styles */
+ .preloader {
+      position: fixed;
+      z-index: 999999;
+      background-color: #181d20;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
 
-@keyframes animate-preloader {
-  0% {
-    transform: rotate(0deg);
-  }
+    .loader-p {
+      border: 0 solid transparent;
+      border-radius: 50%;
+      width: 100px;
+      height: 100px;
+      position: relative;
+    }
 
-  100% {
-    transform: rotate(360deg);
-  }
-}
+    .loader-p:before,
+    .loader-p:after {
+      content: '';
+      border: 1em solid #00e378;
+      border-radius: 50%;
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      animation: loader 3s linear infinite;
+      opacity: 0;
+    }
 
+    .loader-p:before {
+      animation-delay: 0.5s;
+    }
+
+    /* Keyframe for the animation */
+    @keyframes loader {
+      0% {
+        transform: scale(0.5);
+        opacity: 1;
+      }
+      100% {
+        transform: scale(1.5);
+        opacity: 0;
+      }
+    }
 /*--------------------------------------------------------------
 # Scroll Top Button
 --------------------------------------------------------------*/
@@ -1667,7 +1680,7 @@ section,
 
 .real-estate-2 .portfolio-description .testimonial-item p {
   font-style: italic;
-  margin: 0 0 15px 0 0 0;
+  margin: 0 0 15px ;
   padding: 0;
 }
 
@@ -1714,10 +1727,102 @@ section,
   margin-right: 8px;
   color: var(--accent-color);
 }
+.carousel-inner {
+  transition: transform 1s ease-in-out; /* Adjust duration to control the speed */
+}
+
+.carousel-inner img {
+  height: 500px;
+  object-fit: cover;
+}
+
+.carousel-caption {
+
+  padding: 5px;
+  border-radius: 10px;
+
+}
+h5{
+
+  color: #2ec86a;
+}
+p{
+  color: #eadfdf;
+}
+
+.carousel-indicators button {
+  width: 20px; /* Adjust the size */
+  height: 25px;
+  background-color: rgba(0, 0, 0, 0.5); /* Default color */
+  border: 2px solid #fff; /* Add a border */
+
+}
+
+.carousel-indicators .active {
+  background-color: #010202; /* Active indicator color */
+
+}
+
+
+.carousel-item {
+  position: relative;
+}
+
+.carousel-item {
+  position: relative;
+}
+
+.carousel-item {
+  position: relative; /* Ensures that the overlay and caption can be positioned correctly */
+}
+
+
+.overlay {
+  position: absolute; /* Positioned over the image */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%; /* Ensure the overlay covers the entire image */
+  background-color: rgba(0, 0, 0, 0.6); /* Dark overlay */
+  z-index: 1; /* Makes sure the overlay is below the text */
+}
+
+.carousel-caption {
+  position: absolute; /* Positioning the text above the overlay */
+  top: 50%; /* Vertically center the caption */
+  left: 50%;
+  transform: translate(-50%, -15%); /* Center the text horizontally and vertically */
+  color: white; /* White text */
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7); /* Text shadow for better visibility */
+  z-index: 2; /* Keeps the caption above the overlay */
+  text-align: center; /* Centers the text */
+  font-weight: bold;
+}
+
 
 /*--------------------------------------------------------------
 # Starter Section Section
 --------------------------------------------------------------*/
 .starter-section {
   /* Add your styles here */
+}
+/*--------------------------------------------------------------
+
+ */
+
+/* Initial state of the element (hidden below the page) */
+@keyframes slideUp {
+  0% {
+    transform: translateY(50px); /* Start from 50px below */
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0); /* Move to the original position */
+    opacity: 1;
+  }
+}
+
+/* Class that will be added to elements to trigger the animation */
+.animate-up {
+  animation: slideUp 2s ease-out forwards; /* Apply animation */
 }

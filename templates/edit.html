@@ -1,0 +1,47 @@
+{% extends 'starter-page.html' %}
+{% load static %}
+
+{% block body %}
+<br><br><br><br>
+<!-- Appointment Section -->
+<section id="booking" class="booking section light-background" style="background-color: #5c636a">
+
+  <!-- Section Title -->
+  <div class="container section-title" data-aos="fade-up">
+    <h2>Update Your Booking</h2>
+  </div><!-- End Section Title -->
+
+  <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+    <form method="POST" action="/update/{{ book.id }}">
+      {% csrf_token %}
+      <div class="row">
+        <div class="col-md-4 form-group">
+          <input type="text" value="{{ book.name }}" name="name" class="form-control" id="name" placeholder="Your Name" required>
+        </div>
+        <div class="col-md-4 form-group mt-3 mt-md-0">
+          <input type="email" value="{{ book.email }}" class="form-control" name="email" id="email" placeholder="Your Email" required>
+        </div>
+        <div class="col-md-4 form-group mt-3 mt-md-0">
+          <input type="tel" value="{{ book.phone }}" name="phone" class="form-control" id="phone" placeholder="Your Phone" required>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4 form-group mt-3">
+          <input type="date" value="{{ book.date }}" class="form-control" id="date" name="date" required>
+        </div>
+        <div class="col-md-4 form-group mt-3">
+          <input type="text" value="{{ book.location }}" class="form-control" id="location" placeholder="Booking Location" name="location" required>
+        </div>
+      </div>
+      <div class="form-group mt-3">
+        <textarea class="form-control" name="message" rows="5" placeholder="Message (Optional)">{{ book.message }}</textarea>
+      </div>
+      <div class="text-center mt-3">
+        <button type="submit" class="btn btn-primary">Update Booking</button>
+      </div>
+    </form>
+
+  </div>
+</section><!-- /Appointment Section -->
+{% endblock %}

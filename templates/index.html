@@ -4,9 +4,79 @@
 
 {% block body %}
 
+    <style>
+
+html {
+  scroll-behavior: smooth;
+}
+    /* About Section Styling */
+.about {
+  background-color: #e4dfdf; /* Light background for contrast */
+  padding: 60px 0; /* Vertical spacing */
+}
+
+.about .section-title {
+  margin-bottom: 20px; /* Space below the title */
+}
+
+.about .section-title h2 {
+  font-size: 32px;
+  color: #333; /* Dark text for readability */
+  font-weight: bold;
+}
+
+.about .section-title p {
+  font-size: 18px;
+  color: #555; /* Subtle gray for secondary text */
+}
+
+.about img {
+  border-radius: 10px; /* Rounded corners for a modern look */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+.about p {
+  font-size: 16px;
+  line-height: 1.8; /* Better readability */
+  margin-bottom: 20px; /* Space below the paragraph */
+}
+
+.about ul {
+  list-style: none; /* Remove default list styling */
+  padding: 0;
+}
+
+.about ul li {
+  font-size: 16px;
+  margin-bottom: 10px;
+  display: flex; /* Align icon and text inline */
+  align-items: center;
+}
+
+.about ul li i {
+  color: #2fc86b; /* Highlight icons with your brand color */
+  font-size: 18px;
+  margin-right: 10px;
+}
+
+@media (max-width: 768px) {
+  .about .row {
+    flex-direction: column; /* Stack columns on smaller screens */
+  }
+  .about img {
+    margin-bottom: 20px; /* Add space below image */
+  }
+}
 
 
-<div id="propertyCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000" style="font-size: 30px">
+
+
+
+    </style>
+
+
+
+<div id="propertyCarousel" class="carousel slide animate-up" data-bs-ride="carousel" data-bs-interval="3000" style="font-size: 30px">
   <!-- Indicators -->
   <div class="carousel-indicators" data-bs-interval="2000">
     <button type="button" data-bs-target="#propertyCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -43,13 +113,7 @@
 </div>
 
 
-
-
-
-
-
-
-  <!-- Controls -->
+    <!-- Controls -->
   <button class="carousel-control-prev" type="button" data-bs-target="#propertyCarousel" data-bs-slide="prev">
     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
     <span class="visually-hidden">Previous</span>
@@ -59,6 +123,49 @@
     <span class="visually-hidden">Next</span>
   </button>
 </div>
+
+
+
+
+
+
+
+
+
+<!--about us section!-->
+    <section id="about" class="about py-5">
+  <div class="container">
+    <div class="section-title text-center">
+      <h2>About Us</h2>
+      <p style="color: black">Learn more about Essy Properties and what we do.</p>
+    </div>
+    <div class="row align-items-center" >
+      <div class="col-lg-6" >
+        <img src="{% static 'assets/images/about2.jpg' %}" alt="About Us" class="img-fluid rounded">
+      </div>
+      <div class="col-lg-6">
+        <p style="margin-top: 60px;color: black">
+       At Essy Properties, we pride ourselves on offering a diverse range of premium real estate solutions to meet your needs. Whether you're looking to invest in land for future developments or find your dream home, we are committed to providing reliable, secure, and transparent services. Our team works tirelessly to ensure every transaction is seamless, offering you the perfect combination of location, value, and quality. With a deep understanding of the real estate market,
+            Essy Properties is your trusted partner in turning property aspirations into reality.</p>
+        <ul>
+          <li><i class="bi bi-check-circle"></i> Reliable and secure land listings.</li>
+          <li><i class="bi bi-check-circle"></i> Transparent pricing and processes.</li>
+          <li><i class="bi bi-check-circle"></i> Professional customer support.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
+
+
+
+
 
 
 

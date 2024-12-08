@@ -49,6 +49,12 @@
 /*--------------------------------------------------------------
 # General Styling & Shared Classes
 --------------------------------------------------------------*/
+html {
+  scroll-behavior: smooth;
+}
+
+
+
 body {
   color: var(--default-color);
   background-color: var(--background-color);
@@ -486,38 +492,56 @@ h6 {
 /*--------------------------------------------------------------
 # Preloader
 --------------------------------------------------------------*/
-#preloader {
-  position: fixed;
-  inset: 0;
-  z-index: 999999;
-  overflow: hidden;
-  background: var(--background-color);
-  transition: all 0.6s ease-out;
-}
 
-#preloader:before {
-  content: "";
-  position: fixed;
-  top: calc(50% - 30px);
-  left: calc(50% - 30px);
-  border: 6px solid #ffffff;
-  border-color: var(--accent-color) transparent var(--accent-color) transparent;
-  border-radius: 50%;
-  width: 60px;
-  height: 60px;
-  animation: animate-preloader 1.5s linear infinite;
-}
+/* Preloader styles */
+ .preloader {
+      position: fixed;
+      z-index: 999999;
+      background-color: #181d20;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
 
-@keyframes animate-preloader {
-  0% {
-    transform: rotate(0deg);
-  }
+    .loader-p {
+      border: 0 solid transparent;
+      border-radius: 50%;
+      width: 100px;
+      height: 100px;
+      position: relative;
+    }
 
-  100% {
-    transform: rotate(360deg);
-  }
-}
+    .loader-p:before,
+    .loader-p:after {
+      content: '';
+      border: 1em solid #00e378;
+      border-radius: 50%;
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      animation: loader 3s linear infinite;
+      opacity: 0;
+    }
 
+    .loader-p:before {
+      animation-delay: 0.5s;
+    }
+
+    /* Keyframe for the animation */
+    @keyframes loader {
+      0% {
+        transform: scale(0.5);
+        opacity: 1;
+      }
+      100% {
+        transform: scale(1.5);
+        opacity: 0;
+      }
+    }
 /*--------------------------------------------------------------
 # Scroll Top Button
 --------------------------------------------------------------*/
@@ -1656,7 +1680,7 @@ section,
 
 .real-estate-2 .portfolio-description .testimonial-item p {
   font-style: italic;
-  margin: 0 0 15px 0 0 0;
+  margin: 0 0 15px ;
   padding: 0;
 }
 
@@ -1783,3 +1807,22 @@ p{
   /* Add your styles here */
 }
 /*--------------------------------------------------------------
+
+ */
+
+/* Initial state of the element (hidden below the page) */
+@keyframes slideUp {
+  0% {
+    transform: translateY(50px); /* Start from 50px below */
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0); /* Move to the original position */
+    opacity: 1;
+  }
+}
+
+/* Class that will be added to elements to trigger the animation */
+.animate-up {
+  animation: slideUp 2s ease-out forwards; /* Apply animation */
+}

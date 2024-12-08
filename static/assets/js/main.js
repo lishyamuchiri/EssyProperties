@@ -64,12 +64,16 @@
     /**
      * Preloader
      */
-    const preloader = document.querySelector('#preloader');
-    if (preloader) {
-        window.addEventListener('load', () => {
-            preloader.remove();
-        });
-    }
+
+    document.addEventListener("DOMContentLoaded", function () {
+      // Hide the preloader once the page is fully loaded
+      const preloader = document.querySelector(".preloader");
+      if (preloader) {
+        preloader.style.display = "none";
+      }
+    });
+
+
 
     /**
      * Scroll top button
@@ -145,5 +149,23 @@
     new PureCounter();
 
 })();
+
+
+// Create an intersection observer to trigger animation when elements enter the viewport
+let observer = new IntersectionObserver(function (entries, observer) {
+    entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('animate-up');  // Trigger the animation
+      observer.unobserve(entry.target); // Stop observing after animation is triggered
+    }
+  });
+}, {
+  threshold: 0.5  // Trigger when 50% of the element is in the viewport
+});
+
+// Observe all elements with the class 'animate-up' on page load
+document.querySelectorAll('.animate-up').forEach(function(element) {
+  observer.observe(element);
+});
 
 
