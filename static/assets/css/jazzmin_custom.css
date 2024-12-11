@@ -1,0 +1,5 @@
+.brand_logo img {
+    width: 50px; /* Adjust the width as needed */
+    height: 50px; /* Maintain aspect ratio */
+    border-radius: 100px;
+}

@@ -10,8 +10,8 @@
     {% load static %}
 
   <!-- Favicons -->
-  <link href="{% static 'assets/img/logo.jpeg' %}" rel="icon" style="border-radius:100px;">
-  <link href="{% static 'assets/img/logo.jpeg' %}" rel="apple-touch-icon" >
+  <link href="{% static 'assets/img/logo2.jpeg' %}" rel="icon" style="border-radius:100px;">
+  <link href="{% static 'assets/img/logo2.jpeg' %}" rel="apple-touch-icon" >
 
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com" rel="preconnect">
@@ -101,12 +101,7 @@
         </li>
 
 
-      <li>
-          <a href="{% url 'view' %}"
-             {% if request.resolver_match.url_name == 'view' %}style="color: #2ec96a; font-weight: bold;"{% endif %}>
-            Admin login
-          </a>
-        </li>
+
       </ul>
       <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
     </nav>
@@ -185,11 +180,6 @@
         Designed by <a href="" style="color: black">Lishyamuchiri</a>
       </div>
     </div>
-      <div>
-
-          <a href="{% url 'login' %}" style="color: black; font-weight: bold"> login </a>
-
-  </div>
 
 
   </footer>

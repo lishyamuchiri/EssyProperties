@@ -102,7 +102,9 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 
+
 ]
+
 LOGIN_URL = '/login/'
 
 LOGIN_REDIRECT_URL = 'view'
@@ -127,8 +129,7 @@ STATICFILES_DIRS = [
     BASE_DIR /'static',
 ]
 STATIC_ROOT = BASE_DIR / 'staticfiles'
-LOGIN_REDIRECT_URL = 'view'
-LOGIN_URL = '/login/'
+
 
 
 # Default primary key field type
@@ -138,6 +139,8 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
+CSRF_TRUSTED_ORIGINS = ['http://localhost:8000']
+
 
 
 
@@ -145,12 +148,13 @@ JAZZMIN_SETTINGS = {
     'site_title': 'EssyProperties',
     "site_header": "EssyProperties",
     "site_brand": "EssyProperties",
-    "site_logo": "assets/img/logo.jpeg",
+    "site_logo": "assets/img/logo2.jpeg",
     "copyright": "EssyProperties",
     "topmenu_links": [
     {"app": "essyapp"},
 ],
     "show_ui_builder": False,
+    "custom_css": "assets/css/jazzmin_custom.css",
 
 }
 JAZZMIN_UI_TWEAKS = {
@@ -158,15 +162,15 @@ JAZZMIN_UI_TWEAKS = {
     "footer_small_text": True,
     "body_small_text": False,
     "brand_small_text": False,
-    "brand_colour": "navbar-navy",
-    "accent": "accent-primary",
+    "brand_colour": "navbar-gray",
+    "accent": "accent-lime",
     "navbar": "navbar-dark",
     "no_navbar_border": False,
     "navbar_fixed": True,
     "layout_boxed": False,
     "footer_fixed": True,
     "sidebar_fixed": True,
-    "sidebar": "sidebar-dark-lime",
+    "sidebar": "sidebar-light-lightblue",
     "sidebar_nav_small_text": False,
     "sidebar_disable_expand": False,
     "sidebar_nav_child_indent": False,

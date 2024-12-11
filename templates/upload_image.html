@@ -1,19 +1,22 @@
-{% extends 'starter-page.html' %}
+{% extends 'base.html' %}
 {% load static %}
 {% block body%}
+
+{% load static %}
       <!---Upload image--->
 
     <br><br><br><br><br><br>
 
-    <form method="post" enctype="multipart/form-data" class="text-center d-block m-auto mb-4">
-        {% csrf_token %}
+   <form method="post" enctype="multipart/form-data" class="text-center d-block m-auto mb-4 p-4 bg-light rounded shadow">
+    {% csrf_token %}
 
-         <h2>Upload Image</h2>
+    <h2 class="text-primary mb-4">Upload Image</h2>
+
+    <div class="form-group">
         {{ form.as_p }}
-        <button type="submit">Upload</button>
-        <a href="{% url 'image' %}" class="btn btn-warning">Display images</a>
-    </form>
+    </div>
 
-
-
+    <button type="submit" class="btn btn-primary btn-lg mt-3">Upload</button>
+    <a href="{% url 'image' %}" class="btn btn-warning btn-lg mt-3">Display Images</a>
+</form>
 {% endblock %}

@@ -1,4 +1,4 @@
-{% extends 'starter-page.html' %}
+{% extends 'base.html' %}
 {% load static %}
 {% block body %}
 
@@ -8,7 +8,8 @@
    <div id="img" style="display: flex">
        <img src="{% static 'assets/images/siteview.jpg' %}" alt="" style="width:350px;height:350px;margin-left: 10px">
 
-    <table class="table-bordered container">
+    <table style="background-color: #1b1713; color: #ffffff;  width: 100%; text-align: center;">
+    <thead>
 
 
     <thead>
@@ -39,7 +40,7 @@
             <td>{{ x.message }}</td>
 
              <td >
-                <a href="/edit/{{ x.id }}" class="btn btn-primary" style="width: 80px">EDIT</a>
+                <a href="/edit/{{ x.id }}" class="btn btn-success" style="width: 80px">EDIT</a>
                 <a href="{% url 'delete_booking' x.id %}"  class="btn btn-danger" style="width: 80px">DELETE</a>
 
             </td>

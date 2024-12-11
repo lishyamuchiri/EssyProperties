@@ -3,9 +3,10 @@ from django.contrib import admin
 from django.urls import path
 
 from essyapp import views
+from django.contrib.auth import views as auth_views
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+
     path('', views.index, name='index'),
     path('starter/', views.starter, name='starter'),
     path('about/', views.about, name='about'),
@@ -13,8 +14,8 @@ urlpatterns = [
     path('properties/', views.properties, name='properties'),
     path('contact/', views.contact, name='contact'),
     path('book/', views.book, name='book'),
-    path('login/', views.login_view, name='login'),
-    path('view/', views.view, name='view'),
+    path('login/', views.login, name='login'),
+    path('register/', views.register, name='register'),
     path('cshow/', views.cshow, name='cshow'),
     path('bookshow/', views.bookshow, name='bookshow'),
     # URL for deleting contacts
@@ -29,7 +30,11 @@ urlpatterns = [
     path('uploadimage/', views.upload_image, name='upload'),
 
     path('showimage/', views.show_image, name='image'),
+
     path('imagedelete/<int:id>', views.imagedelete),
+
+    path('logout/', auth_views.LogoutView.as_view(), name='logout'),
+
 
 
 ]
